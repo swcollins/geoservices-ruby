@@ -50,4 +50,14 @@ describe Geoservice do
       expect(@service.count(0)["count"] > 0).to eq(true)
     end
   end
+
+  context "getting a map service layer using https" do
+    before :all do
+      @service = Geoservice::MapService.new(:url => "https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/EarthquakesFromLastSevenDays/MapServer")
+    end
+
+    it "should be countable" do
+      expect(@service.count(0)["count"] > 0).to eq(true)
+    end
+  end
 end
